@@ -35,11 +35,9 @@
 
 (defn errors [value :document] :document
   (let [type-value
-        (option-value-of [:option :string]
+        (option-or
           (document-string-value
-            (option-value-of [:option :document]
-              (document-get value :type)
-              (document-null)))
+            (option-or (document-get value :type) (document-null)))
           "")
         type-error
         (document-map :error
