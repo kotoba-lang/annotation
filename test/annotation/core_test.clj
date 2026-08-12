@@ -47,3 +47,16 @@
     (is (pos? (alength ^bytes (:bytes wasm))))
     (is (zero? (:exit js-probe)) (:err js-probe))
     (is (zero? (:exit wasm-probe)) (:err wasm-probe))))
+
+(deftest production-source-authority
+  ;; ADDED here (this repo had no such assertion) in the NARROWED form the other
+  ;; repaired repos use: src/ is exactly two files — the .kotoba authority and the
+  ;; .cljc load path that annotation.parity-test compares against it. A third file,
+  ;; or a second .cljc, would be a fork of the authority and fails here.
+  (is (= ["src/annotation/core.cljc"
+          "src/annotation/core.kotoba"]
+         (->> (file-seq (io/file "src"))
+              (filter #(.isFile %))
+              (map str)
+              sort
+              vec))))

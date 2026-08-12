@@ -1,10 +1,17 @@
 {:paths ["src"]
- :deps {io.github.kotoba-lang/compiler
-        {:git/sha "c3be07fb38bf457a159a2b304152e18693f9b0b6"}}
+ :deps {org.clojure/clojure {:mvn/version "1.12.0"}}
  :aliases
  {:test {:extra-paths ["test"]
+         ;; kotoba-lang/compiler is a TEST-ONLY dependency: it is needed by the tests
+         ;; that compile src/annotation/core.kotoba and compare it with
+         ;; src/annotation/core.cljc (ADR 0001 as amended, and ADR-2608134800 in
+         ;; com-junkawasaki/root). Consumers require only the .cljc and must not be
+         ;; made to drag the compiler in behind it — kotoba-lang/css, /dsl-core,
+         ;; /async and /postfx set the same boundary.
          :extra-deps {io.github.cognitect-labs/test-runner
-                      {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
+                      {:git/tag "v0.5.1" :git/sha "dfb30dd"}
+                      io.github.kotoba-lang/compiler
+                      {:git/sha "c3be07fb38bf457a159a2b304152e18693f9b0b6"}}
          :main-opts ["-m" "cognitect.test-runner"]}
   ;; clj-kondo as a Clojars lib (no Homebrew/system install needed).
   :lint {:replace-deps {clj-kondo/clj-kondo {:mvn/version "2024.11.14"}}
