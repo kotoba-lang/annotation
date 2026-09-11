@@ -1,6 +1,6 @@
 (ns annotation.parity-test
   "Parity gate between `src/annotation/core.kotoba` (the semantic authority) and
-  `src/annotation/core.cljc` (the load path a Clojure/ClojureScript consumer requires).
+  `src/annotation/core.cljk` (the load path a Clojure/ClojureScript consumer requires).
 
   Shape follows `kotoba-lang/css` (`css.kotoba-parity-test`), `kotoba-lang/dsl-core`
   and `kotoba-lang/async` (ADR-2608130900), and `kotoba-lang/postfx` (ADR-2608133600):
@@ -11,7 +11,7 @@
   interpreter hands back (`->doc`).
 
   WHY THE .cljc EXISTS AT ALL. `775081a4` (2026-07-20) deleted
-  `src/annotation/core.cljc` and put the `.kotoba` at that path. A `.kotoba` is on no
+  `src/annotation/core.cljk` and put the `.kotoba` at that path. A `.kotoba` is on no
   Clojure classpath, so `annotation.core` stopped being loadable by every runtime this
   workspace ranks above the native path. The `.cljc` restored beside it is the load
   path; the `.kotoba` remains the authority.

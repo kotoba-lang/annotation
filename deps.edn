@@ -4,7 +4,7 @@
  {:test {:extra-paths ["test"]
          ;; kotoba-lang/amu is a TEST-ONLY dependency: it is needed by the tests
          ;; that compile src/annotation/core.kotoba and compare it with
-         ;; src/annotation/core.cljc (ADR 0001 as amended, and ADR-2608134800 in
+         ;; src/annotation/core.cljk (ADR 0001 as amended, and ADR-2608134800 in
          ;; com-junkawasaki/root). Consumers require only the .cljc and must not be
          ;; made to drag the compiler in behind it — kotoba-lang/css, /dsl-core,
          ;; /async and /postfx set the same boundary.
