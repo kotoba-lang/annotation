@@ -14,7 +14,7 @@ right-biased merge. The W3C `@context` key is produced through the admitted
 ## Test
 
 ```bash
-clojure -M:test
+kbb -M:test
 ```
 
 The test JVM is a compiler/build host only. Tests execute reference semantics
