@@ -8,8 +8,8 @@ dispositions:
     kind: retained-common
     reason: Host-free data library intentionally consumed as common Clojure-family source; no Kotoba-only guest entry point exists.
 verification:
-  - clojure -M:test
-  - clojure -M:lint
+  - kbb -M:test
+  - kbb -M:lint
 verification_result:
   status: passed
   tests: 2 tests, 5 assertions, 0 failures, 0 errors
