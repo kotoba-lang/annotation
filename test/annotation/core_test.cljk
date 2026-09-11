@@ -53,7 +53,7 @@
   ;; repaired repos use: src/ is exactly two files — the .kotoba authority and the
   ;; .cljc load path that annotation.parity-test compares against it. A third file,
   ;; or a second .cljc, would be a fork of the authority and fails here.
-  (is (= ["src/annotation/core.cljc"
+  (is (= ["src/annotation/core.cljk"
           "src/annotation/core.kotoba"]
          (->> (file-seq (io/file "src"))
               (filter #(.isFile %))
