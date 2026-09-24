@@ -41,7 +41,7 @@
   `text-position-selector`, and `errors`/`validate` over map documents — is compared
   for equality."
   (:require [annotation.core :as ann]
-            [clojure.test :refer [deftest is testing]]
+            [kotoba.test :refer [deftest is testing]]
             [kotoba.compiler.core :as compiler]
             [kotoba.kir :as ir]))
 
